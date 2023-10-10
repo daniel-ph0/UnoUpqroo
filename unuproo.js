@@ -1,6 +1,6 @@
 const rl = require("readline-sync");
 //define las 108 carta
-var deck = [];
+var deck1 = [];
 //define color 
 var colors = ["amarillo", "blue", "green", "red"];
 //define tipo de carta
