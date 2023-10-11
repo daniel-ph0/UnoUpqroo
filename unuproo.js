@@ -1,6 +1,6 @@
 const rl = require("readline-sync");
 //define las 108 carta
-var deck1 = [];
+var deck = [];
 //define color 
 var colors = ["amarillo", "blue", "green", "red"];
 //define tipo de carta
@@ -40,6 +40,20 @@ deck.push({ color: null, number: "cc", type: "comodin" })
 //console.log(deck);
 
 const players = rl.question("Cuantos jugadores seran?", {})
+const totalCards = players * 7;
+// Repartir 7 cartas x jugador
+// Recorro el total de tarjetas 
+//(total de tarjetas = tarjetas/7 x jugador)
+// un arreglo x jugador
+var cardsPlayers = {};
 
+for(var cTCards = 0; cTCards < 7; cTCards++){
+    for(var cPlayers = 0; cPlayers < players; cPlayers++) {
+        if (!cardsPlayers["player_"+cPlayers]) {
+            cardsPlayers["player_"+cPlayers] = [];
+        }
+        cardsPlayers["player_"+cPlayers].push(deck[cTCards]);
+    }
+}
 
-console.log(players)
+console.log(cardsPlayers);
