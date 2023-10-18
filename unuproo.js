@@ -29,14 +29,14 @@ for (var cColor = 0; cColor < colors.length; cColor++ ){
 
 } 
 
-deck.push({color: null, number: "+4", type: "comun"});
-deck.push({color: null, number: "+4", type: "comun"});
-deck.push({color: null, number: "+4", type: "comun"});
-deck.push({color: null, number: "+4", type: "comun"});
-deck.push({color: null, number: "CC", type: "comun"});
-deck.push({color: null, number: "CC", type: "comun"});
-deck.push({color: null, number: "CC", type: "comun"});
-deck.push({color: null, number: "CC", type: "comun"});
+deck.push({color: null, number: "+4", type: "comodin"});
+deck.push({color: null, number: "+4", type: "comodin"});
+deck.push({color: null, number: "+4", type: "comodin"});
+deck.push({color: null, number: "+4", type: "comodin"});
+deck.push({color: null, number: "CC", type: "comodin"});
+deck.push({color: null, number: "CC", type: "comodin"});
+deck.push({color: null, number: "CC", type: "comodin"});
+deck.push({color: null, number: "CC", type: "comodin"});
 
 const players = rl.question("¿cuantos jugadores seran?", {})
 const totalcards = players * 7;
@@ -69,6 +69,28 @@ function jumpPlayer(card){
         return true
     }
     return false
+}
+colorChange("green")
+function colorChange(newColor){
+    //Paso 1 verificar que carta sea comodin (cambioColor)
+    //Paso 2 al quitar la carta del jugador
+    //Paso 3 obtener la carta del jugador
+    //paso 4 es mopdificar la carta cartaejemnplo.color = newColor
+}
+
+function reverse(){
+    //Paso 1 verificar cuantos jugadores tenemos
+    //Paso 2 obtener jugador actual
+    //Paso 3 crear una varible que defina la bandera (true o false)
+    //paso 4 obtenermos nuestro siguente jugador
+    //paso 5 hacemos un return del sig jugador (player_N)
+}
+
+for (const player in cardsPlayers) {
+    quitan del deck
+    console.log("Jugador actual: ", cardsPlayers[player]);
+    y se lo ponen a este 
+    console.log("Sig. Jugadro: ", cardsPlayers[player+1]);
 }
 
 console.log(chalk.bgWhite("Ultima carta tirada:") +" "+ chalk[trash[trash.length-1].color].bold(trash[trash.length-1].number))
