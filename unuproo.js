@@ -1,8 +1,9 @@
 const rl = require("readline-sync");
 const chalk = require("chalk");
+const mazoRevuelto = require('./modules/revuelveMazo')
 //juego UNO
 var deck = [];
-var colors = ["Yellow","Blue", "Green", "Red"];
+var colors = ["yellow","blue", "green", "red"];
 var types = ["Comun", "Especial","Comodin"];
 var card = {
     color: null, // amarillo, azul , verde , rojo 
@@ -39,6 +40,8 @@ deck.push({color: null, number: "CC", type: "comun"});
 
 const players = rl.question("¿cuantos jugadores seran?", {})
 const totalcards = players * 7;
+// Deck Shuffle
+mazoRevuelto(deck);
 var cardsPlayers = {};
 
 for(var cTcards = 0; cTcards < 7; cTcards++){
@@ -61,13 +64,20 @@ function cardValidation(card) {
     } else {console.log("no es igual")}
 }
 
-for(const player in cardsPlayers) {
-    console.log(cardsPlayers[player])
-    // npm i chalk@4.1.2
-    // Primer player ponga una carta
-    // PASO 1: Ver mis martas
-    // PASO 2: Elejir carta
-    // PASO 3: Validar carta
-    // PASO 4: Poner carta (de mano jugador a trash)
-    console.log(chalk.blue('Hello') + ' World' + chalk.red('!'))
+function jumpPlayer(card){
+    if (card.number == "B") {
+        return true
+    }
+    return false
 }
+
+console.log(chalk.bgWhite("Ultima carta tirada:") +" "+ chalk[trash[trash.length-1].color].bold(trash[trash.length-1].number))
+console.log(trash[trash.length-1]);
+
+//0 Perez Alegria -- Modulo/Funcionalidad "Seleccionar opciones (definidas)"
+//0 Polanco Aguilar -- Modulo/Funcionalidad "Cambio Color"
+//0 Caamal Cime -- Modulo/Funcionalidad "Comodin +4"
+//0 Garcia Rafael -- Modulo/Funcionalidad "Especial +2"
+//10 HH Ivan -- Modulo/Funcionalidad "Revolver/Randomizar cartas (deck)"
+//0 Chi Hernandez -- Modulo/Funcionalidad "Especial Reversa"
+//0 Yonni -- Modulo/Funcionalidad "Aplicar especial Brincar"

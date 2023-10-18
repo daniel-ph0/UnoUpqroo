@@ -1,5 +1,5 @@
 
-node_modules/.package-lock.json
+node_modules/
 node_modules/ansi-styles/index.d.ts
 node_modules/ansi-styles/index.js
 node_modules/ansi-styles/license
