@@ -87,9 +87,9 @@ function reverse(){
 }
 
 for (const player in cardsPlayers) {
-    quitan del deck
+
     console.log("Jugador actual: ", cardsPlayers[player]);
-    y se lo ponen a este 
+   
     console.log("Sig. Jugadro: ", cardsPlayers[player+1]);
 }
 
