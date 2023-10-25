@@ -3,9 +3,9 @@
 // La carta que saco como jugador
 // Decidir decir 1
 const inquirer = require("inquirer");
-function selectOption(options, message = "Selecciona una opción:") {
-  return inquirer
-    .prompt([
+async function selectOption(options, message = "Selecciona una opción:") {
+  console.log(options);
+  const result = await inquirer.prompt([
       {
         type: "list",
         name: "selectedOption",
@@ -13,10 +13,11 @@ function selectOption(options, message = "Selecciona una opción:") {
         choices: options,
       },
     ])
-    .then((answers) => answers.selectedOption);
+    return result
 }
 
-function selectionUno(){
+function selectionUno(opciones, option){
+  var seleccion = null;
   switch (option) {
     case "CC":
       colorChange();
@@ -25,12 +26,16 @@ function selectionUno(){
       colorChange();
       break;
     case "CHOICE":
+      // Descomponer opciones
+      ["8-red", "6-green", "R-yellow"]
+        seleccion = selectOption(nuevaVarible, "Selecciona una carta:")
       break;
     case "UNO":
       break;
     default:
       break;
   }
+  return seleccion
 }
 
 function colorChange(colors){
