@@ -1,7 +1,8 @@
 
 function changeColor(card, newColor) {
 
-    card.color = newColor; return card;
+    card.color = newColor; 
+    return card;
 
 }
 var newColor = rl.question("Ingrese el nuevo color: ");

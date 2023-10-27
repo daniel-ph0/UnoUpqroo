@@ -67,9 +67,37 @@ async function jugar() {
     }
   }
 
+  // Recorremos a los jugadores
   for (const player in cardsPlayers) {
-    console.log("Jugador actual: ", player);
-    await selectionUno(cardsPlayers[player], "CHOICE");
+    let end = false;
+    // Mientras el turno no acabe
+    while (end == false) {
+      //  Imprimimos el jugador actual como referencia
+      console.log("Jugador actual: ", player);
+      // Mostramos sus cartas y esperamos seleccione una
+      const result = await selectionUno(cardsPlayers[player], "CHOICE");
+      // Buscar carta seleccionada
+      console.log(result);
+      ///////////////////////////////////////////////////////
+      // Tarea lunes 30 oct
+      // obtener el index de la carta (buscar result en el arreglo cardsPlayers[player])
+      // let cardIndex = // Aqui va el index obtenido
+      // mediante ese index obtenido
+      // validar la carta con nuestra funcion cardValidation()
+      // Validar si la carta se puede usar
+      if (cardValidation(/** carta obtenida */)) {
+          // si es valida end = true
+          // se agrega a trash y se remueve del jugador
+          // el turno termina y se pasa al sig jugador mediante el while automaticamente
+      }
+      // el while authmaticamente reinicia a el principio
+      /**
+       * NOTA: Si uso chatgpt 
+       * pedirle que me explique el codigo linea por linea
+       * NOTA 2: Si me pasan el codigo, que sea alguien 
+       * que me explique y sea el que lo hizo
+       */
+    }
   }
 
   console.log(
