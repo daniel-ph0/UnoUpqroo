@@ -3,7 +3,6 @@ const chalk = require("chalk");
 const mazoRevuelto = require("./modules/deck-shuffle");
 const selectionUno = require("./modules/seleccion");
 
-
 //juego UNO
 async function jugar() {
   var deck = [];
@@ -56,57 +55,60 @@ async function jugar() {
   trash.push(deck.shift());
 
   function cardValidation(card) {
-    console.log(card.number);
-    //if (card.number == 2) llamar a numero y carta
     if (
       card.number == trash[trash.length - 1].number ||
       card.color == trash[trash.length - 1].color
     ) {
-      console.log("es igual");
+      return true;
     } else {
-      console.log("no es igual");
+      return false;
     }
   }
 
   // Recorremos a los jugadores
   for (const player in cardsPlayers) {
+    
+    console.log(
+      chalk.bgWhite("Ultima carta tirada:") + 
+      " " + 
+      chalk[trash[trash.length - 1].color].bold(
+        trash[trash.length - 1].number
+        )
+    );
     let end = false;
     // Mientras el turno no acabe
     while (end == false) {
       //  Imprimimos el jugador actual como referencia
       console.log("Jugador actual: ", player);
       // Mostramos sus cartas y esperamos seleccione una
-      const result = await selectionUno(cardsPlayers[player], "CHOICE");
+      const result = (await selectionUno(cardsPlayers[player], "CHOICE"))
+        .selectedOption;
       // Buscar carta seleccionada
-      console.log(result);
       ///////////////////////////////////////////////////////
       // Tarea lunes 30 oct
       // obtener el index de la carta (buscar result en el arreglo cardsPlayers[player])
-      // let cardIndex = // Aqui va el index obtenido
+      let cardIndex = cardsPlayers[player].findIndex((card) => {
+        return card.number == result.number && card.color == result.color;
+      }); // Aqui va el index obtenido
       // mediante ese index obtenido
       // validar la carta con nuestra funcion cardValidation()
       // Validar si la carta se puede usar
-      if (cardValidation(/** carta obtenida */)) {
-          // si es valida end = true
-          // se agrega a trash y se remueve del jugador
-          // el turno termina y se pasa al sig jugador mediante el while automaticamente
+      if (cardValidation(cardsPlayers[player][cardIndex])) {
+        // si es valida end = true
+        // se agrega a trash y se remueve del jugador
+        trash.push(cardsPlayers[player].splice(cardIndex, 1)[0]);
+        // el turno termina y se pasa al sig jugador mediante el while automaticamente
+        end = true;
       }
       // el while authmaticamente reinicia a el principio
       /**
-       * NOTA: Si uso chatgpt 
+       * NOTA: Si uso chatgpt
        * pedirle que me explique el codigo linea por linea
-       * NOTA 2: Si me pasan el codigo, que sea alguien 
+       * NOTA 2: Si me pasan el codigo, que sea alguien
        * que me explique y sea el que lo hizo
        */
     }
   }
-
-  console.log(
-    chalk.bgWhite("Ultima carta tirada:") +
-      " " +
-      chalk[trash[trash.length - 1].color].bold(trash[trash.length - 1].number)
-  );
-  console.log(trash[trash.length - 1]);
 }
 
 jugar();
