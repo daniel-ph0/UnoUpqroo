@@ -99,7 +99,7 @@ async function jugar() {
         end = true;
       }
       // 25 min
-      // Validar si la carta es un comodin
+      // Validar si la carta es un comod
       // de preferencia con una funcion como la de cardValidation
        else if (cardsPlayers[player][cardIndex].type === "comodin"){
         trash.push(cardsPlayers [player].splice(cardIndex, 1)[0]);
