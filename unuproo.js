@@ -101,14 +101,29 @@ async function jugar() {
       // 25 min
       // Validar si la carta es un comodin
       // de preferencia con una funcion como la de cardValidation
-       else if () { 
+      function wildCardValidation(card) {
+        if (
+          card.comodin == trash[trash.length - 1].comun ||
+          card.color == trash[trash.length - 1].color
+        ) {
+         
+          trash.push(card);
+
+      
+          return true;
+        } else {
+          return false;
+        }
+      }
         // si la carta es un comodin agregarla al trash y
         // quitarla del jugador
+        
         // el turno se termina y pasa al sig jugador
       }
       // el while authmaticamente reinicia a el principio
     }
   }
-}
+
+
 
 jugar();
