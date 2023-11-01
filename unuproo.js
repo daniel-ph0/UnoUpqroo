@@ -84,8 +84,6 @@ async function jugar() {
       const result = (await selectionUno(cardsPlayers[player], "CHOICE"))
         .selectedOption;
       // Buscar carta seleccionada
-      ///////////////////////////////////////////////////////
-      // Tarea lunes 30 oct
       // obtener el index de la carta (buscar result en el arreglo cardsPlayers[player])
       let cardIndex = cardsPlayers[player].findIndex((card) => {
         return card.number == result.number && card.color == result.color;
@@ -100,13 +98,15 @@ async function jugar() {
         // el turno termina y se pasa al sig jugador mediante el while automaticamente
         end = true;
       }
+      // 25 min
+      // Validar si la carta es un comodin
+      // de preferencia con una funcion como la de cardValidation
+       else if () { 
+        // si la carta es un comodin agregarla al trash y
+        // quitarla del jugador
+        // el turno se termina y pasa al sig jugador
+      }
       // el while authmaticamente reinicia a el principio
-      /**
-       * NOTA: Si uso chatgpt
-       * pedirle que me explique el codigo linea por linea
-       * NOTA 2: Si me pasan el codigo, que sea alguien
-       * que me explique y sea el que lo hizo
-       */
     }
   }
 }
